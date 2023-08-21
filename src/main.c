@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:04:55 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/21 19:54:15 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:55:30 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_game		game_info;
-	t_img_path	path;
+	t_texture	path;
 	if (argc != 2)
 		ft_putstr_fd("Error\nNot enough arguments", 1);
 	/*parse_mapinfo(&gameinfo, &path);*/
