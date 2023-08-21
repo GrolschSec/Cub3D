@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/21 19:48:44 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:52:32 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,18 @@ typedef struct	s_color
 	unsigned int	blue;
 }				t_color;
 
-typedef struct	s_game
+typedef struct	s_img_path
 {
-	t_color	floor;
-	t_color	ceiling;
 	char	*p_north;
 	char	*p_west;
 	char	*p_east;
 	char	*p_south;
+}				t_img_path;
+
+typedef struct	s_game
+{
+	t_color	floor;
+	t_color	ceiling;
 	void	*i_north;
 	void	*i_west;
 	void	*i_east;
