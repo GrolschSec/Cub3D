@@ -2,3 +2,6 @@
 	path = src/libft
 	url = https://github.com/GrolschSec/Libft.git
 	branch = cub3D
+[submodule "mlx"]
+	path = src/mlx
+	url = https://github.com/42Paris/minilibx-linux.git
