@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/21 19:42:19 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:45:17 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ typedef struct	s_game
 	char	*p_west;
 	char	*p_east;
 	char	*p_south;
+	void	*i_north;
+	void	*i_west;
+	void	*i_east;
+	void	*i_south;
 	char	**map;
 	int		x_pos;
 	int		y_pos;
