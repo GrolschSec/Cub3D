@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/21 19:45:17 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/21 19:48:44 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct	s_game
 	void	*i_west;
 	void	*i_east;
 	void	*i_south;
+	void	*mlx_ptr;
+	void	*mlx_win;
 	char	**map;
 	int		x_pos;
 	int		y_pos;
