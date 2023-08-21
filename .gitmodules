@@ -1,0 +1,4 @@
+[submodule "libft"]
+	path = src/libft
+	url = https://github.com/GrolschSec/Libft.git
+	branch = cub3D
