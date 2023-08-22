@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 19:37:24 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 21:00:17 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 # include <fcntl.h>
 # include "../src/libft/libft.h"
 # include "../src/mlx/mlx.h"
+# include "../src/mlx/mlx_int.h"
 # include "get_next_line.h"
-
-typedef struct s_img
-{
-	void	*ptr;
-	int		width;
-	int		height;
-}				t_img;
+# define ESC_KEY 65307
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define L_KEY 65361
+# define R_KEY 65363
 
 typedef struct s_color
 {
@@ -58,6 +59,10 @@ typedef struct s_game
 	char	direction;
 }				t_game;
 
+/* WINDOW */
+void	window_init(t_game *game);
+int		handle_event(int keycode, t_game *game);
+int		close_window(t_game *game);
 /* PARSING */
 int		parse_map(t_game *game, t_texture *path, char **argv);
 int		set_initial_position(t_game *game);
