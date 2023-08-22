@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 19:26:51 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:37:24 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@
 # include "../src/mlx/mlx.h"
 # include "get_next_line.h"
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*ptr;
 	int		width;
 	int		height;
 }				t_img;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	unsigned int	red;
 	unsigned int	green;
 	unsigned int	blue;
 }				t_color;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	char	*p_north;
 	char	*p_west;
@@ -41,7 +41,7 @@ typedef struct	s_texture
 	char	*p_south;
 }				t_texture;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	int		fd;
 	t_color	floor;
@@ -68,8 +68,8 @@ int		parse_file(t_game *game, t_texture *path);
 /* FILECHECK_2 */
 char	*file_to_line(t_game *game);
 int		set_textures(char *file, t_texture *path);
-char 	*extract_texture(char *file, char *identifier);
-int 	set_colors(char *file, t_color *floor, t_color *ceiling);
+char	*extract_texture(char *file, char *identifier);
+int		set_colors(char *file, t_color *floor, t_color *ceiling);
 int		set_map(char *file, t_game *game);
 /* ERROR */
 void	ft_error(char *msg);

@@ -6,14 +6,14 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 20:22:07 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 14:14:48 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:37:45 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
+#  define BUFFER_SIZE 5
 # endif
 # include <stdio.h>
 # include <stdlib.h>
