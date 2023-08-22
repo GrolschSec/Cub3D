@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 17:50:02 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:21:46 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include "../src/libft/libft.h"
 # include "../src/mlx/mlx.h"
 # include "get_next_line.h"
+
+typedef struct	s_img
+{
+	void	*ptr;
+	int		width;
+	int		height;
+}				t_img;
 
 typedef struct	s_color
 {
@@ -39,10 +46,10 @@ typedef struct	s_game
 	int		fd;
 	t_color	floor;
 	t_color	ceiling;
-	void	*i_north;
-	void	*i_west;
-	void	*i_east;
-	void	*i_south;
+	t_img	i_north;
+	t_img	i_west;
+	t_img	i_east;
+	t_img	i_south;
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	**map;
@@ -77,4 +84,8 @@ int		validation_cond(t_game *game, int i, int j, int *p);
 /* MAP_CHECK_2 */
 int		check_left_right_wall(char **map, int *i, int j);
 void	remove_spaces_from_map(char **map);
+/* INIT_TEXTURE */
+int		init_texture(t_img *img, void *mlx_ptr, char *path);
+void	dst_img(t_game *game);
+int		init_mlx(t_texture *path, t_game *game);
 #endif

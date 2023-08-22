@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/22 17:21:54 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/22 17:59:08 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC		=	main.c			\
 			free.c			\
 			map_check_1.c	\
 			map_check_2.c	\
+			init_texture.c	\
 			error.c		
 
 OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)
