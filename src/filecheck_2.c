@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:58:21 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 15:58:56 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:55:33 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*file_to_line(t_game *game)
 {
 	char	*str;
 	char	*buf;
+	char	*tmp;
 	int		res;
 
 	str = NULL;
@@ -53,7 +54,10 @@ char	*file_to_line(t_game *game)
 		if (res < 0)
 			return (free(buf), NULL);
 		buf[res] = '\0';
-		str = ft_strjoin(str, buf);
+		tmp = ft_strjoin(str, buf);
+		if (str)
+			free(str);
+		str = tmp;
 	}
 	return (free(buf), close(game->fd), str);
 }

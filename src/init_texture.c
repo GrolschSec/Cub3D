@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:59:10 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:31:05 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:08:36 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	init_texture(t_img *img, void *mlx_ptr, char *path)
 {
+	ft_memset(img, 0, sizeof(t_img));
 	img->ptr = mlx_xpm_file_to_image(mlx_ptr, path, &img->width, &img->height);
 	if (!img->ptr)
 		return (0);

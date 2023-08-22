@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:04:55 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 16:09:05 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:50:38 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 		return (2);
 	/*texture_init(&game, &path);*/
 	/*cub3d(&gameinfo)*/
+	free_game(&game);
 	return (0);
 }
