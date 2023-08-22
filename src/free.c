@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:11:21 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 19:00:30 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:14:19 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void	free_game(t_game *game)
 		free_map(game->map);
 	dst_img(game);
 	if (game->mlx_ptr)
+	{
 		mlx_destroy_display(game->mlx_ptr);
+		free(game->mlx_ptr);
+	}
 }
