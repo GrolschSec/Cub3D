@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 14:57:57 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:05:25 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	parse_map(t_game *game, t_texture *path, char **argv)
 {
 	(void)path;
 
+	ft_memset(game, 0, sizeof(t_game));
 	if (!has_cub_extension(argv[1]))
 		return (ft_error("File is not a '.cub' file"), 1);
 	if (!open_file(argv[1], game))
