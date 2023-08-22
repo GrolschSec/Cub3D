@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:59:10 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:27:42 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:31:05 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int	init_mlx(t_texture *path, t_game *game)
 		return (ft_error("Failed to init texture"), 0);
 	if (!init_texture(&game->i_south, game->mlx_ptr, path->p_south))
 		return (ft_error("Failed to init texture"), 0);
-	return (1);
+	return (free_texture(path), 1);
 }
