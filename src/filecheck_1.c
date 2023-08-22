@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:03:05 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 15:58:53 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:33:31 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ int	parse_file(t_game *game, t_texture *path)
 
 	file = file_to_line(game);
 	if (!file)
-		return (ft_error("In reading file"), free(file), 0);
+		return (ft_error("In reading file"), 0);
 	if (!set_textures(file, path))
 		return (ft_error("Can't find all textures required"), free(file), 0);
 	if (!set_colors(file, &(game->floor), &(game->ceiling)))
 		return (ft_error("Can't extract colors"), free(file), 0);
 	if (!set_map(file, game))
-		return (ft_error("Can't extract map"), 0);
+		return (ft_error("Can't extract map"), free(file), 0);
 	return (free(file), 1);
 }
 
