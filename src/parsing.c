@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:50:22 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:26:28 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	set_initial_position(t_game *game)
 int	parse_map(t_game *game, t_texture *path, char **argv)
 {
 	ft_memset(game, 0, sizeof(t_game));
+	ft_memset(path, 0, sizeof(t_texture));
 	if (!has_cub_extension(argv[1]))
 		return (ft_error("File is not a '.cub' file"), 1);
 	if (!open_file(argv[1], game))
@@ -53,9 +54,8 @@ int	parse_map(t_game *game, t_texture *path, char **argv)
 	if (!verify_map(game))
 		return (free_texture(path), free_game(game), 4);
 	remove_spaces_from_map(game->map);
-	/* NEED TO SET THE PLAYER POSITION IN THE STRUCT */
+	set_initial_position(game);
 	if (!init_mlx(path, game))
 		return (free_texture(path), free_game(game), 5);
-	free_texture(path);
 	return (0);
 }

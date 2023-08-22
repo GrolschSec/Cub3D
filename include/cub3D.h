@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:48:34 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:26:51 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct	s_game
 
 /* PARSING */
 int		parse_map(t_game *game, t_texture *path, char **argv);
+int		set_initial_position(t_game *game);
 /* FILECHECK_1 */
 int		has_cub_extension(char *filename);
 int		open_file(char *filename, t_game *game);

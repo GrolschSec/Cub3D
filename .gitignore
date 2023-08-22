@@ -5,3 +5,5 @@ src/libft/*.o
 src/libft/libft.a
 .gdb_history
 Notes.txt
+map/
+txt/
