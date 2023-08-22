@@ -3,3 +3,4 @@ cub3D
 .vscode/
 src/libft/*.o
 src/libft/libft.a
+.gdb_history

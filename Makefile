@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/21 19:13:19 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/22 15:59:43 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,11 @@ FT		=	libft
 
 MLX		=	mlx
 
-SRC		=	main.c
+SRC		=	main.c			\
+			filecheck_1.c	\
+			filecheck_2.c	\
+			parsing.c		\
+			error.c		
 
 OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)
 
@@ -62,4 +66,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re clean fclean
+debug: CFLAGS += -g -O0
+debug: fclean all
+
+valgrind: debug
+	valgrind --leak-check=full --track-fds=yes --show-leak-kinds=all ./$(NAME)
+
+.PHONY: all re clean fclean debug
