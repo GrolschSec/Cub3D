@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 17:24:03 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:50:02 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ int		are_boundaries_walls(char **map);
 int		validation_cond(t_game *game, int i, int j, int *p);
 /* MAP_CHECK_2 */
 int		check_left_right_wall(char **map, int *i, int j);
+void	remove_spaces_from_map(char **map);
 #endif

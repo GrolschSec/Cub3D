@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 16:22:12 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:50:25 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	parse_map(t_game *game, t_texture *path, char **argv)
 		return (3);
 	if (!verify_map(game))
 		return (4);
+	remove_spaces_from_map(game->map);
 	return (0);
 }

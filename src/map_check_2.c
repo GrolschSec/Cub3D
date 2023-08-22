@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:20:07 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 17:25:15 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:54:26 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,29 @@ int	check_left_right_wall(char **map, int *i, int j)
 		*i += 1;
 	}
 	return (1);
+}
+
+void	remove_spaces_from_map(char **map)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		k = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] != ' ')
+			{
+				map[i][k] = map[i][j];
+				k++;
+			}
+			j++;
+		}
+		map[i][k] = '\0';
+		i++;
+	}
 }
