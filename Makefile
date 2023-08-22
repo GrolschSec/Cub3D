@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/22 15:59:43 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/22 17:21:54 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ SRC		=	main.c			\
 			filecheck_1.c	\
 			filecheck_2.c	\
 			parsing.c		\
+			free.c			\
+			map_check_1.c	\
+			map_check_2.c	\
 			error.c		
 
 OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)

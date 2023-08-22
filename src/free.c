@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 16:22:12 by rlouvrie         ###   ########.fr       */
+/*   Created: 2023/08/22 16:11:21 by rlouvrie          #+#    #+#             */
+/*   Updated: 2023/08/22 16:38:44 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-int	parse_map(t_game *game, t_texture *path, char **argv)
+void	free_texture(t_texture *path)
 {
-	ft_memset(game, 0, sizeof(t_game));
-	if (!has_cub_extension(argv[1]))
-		return (ft_error("File is not a '.cub' file"), 1);
-	if (!open_file(argv[1], game))
-		return (ft_error("Can't open file"), 2);
-	if (!parse_file(game, path))
-		return (3);
-	if (!verify_map(game))
-		return (4);
-	return (0);
+	if (path->p_north)
+		free(path->p_north);
+	if (path->p_west)
+		free(path->p_west);
+	if (path->p_east)
+		free(path->p_east);
+	if (path->p_south)
+		free(path->p_south);
+}
+
+void	free_map(char **tab)
+{
+	int	i;
+
+	if (!tab)
+		return ;
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
+}
+
+void	free_game(t_game *game)
+{
+	if (game->map)
+		free_map(game->map);
 }

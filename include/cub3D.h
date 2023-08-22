@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 15:55:18 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:24:03 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@ typedef struct	s_game
 
 /* PARSING */
 int		parse_map(t_game *game, t_texture *path, char **argv);
-/* FILECHECK */
+/* FILECHECK_1 */
 int		has_cub_extension(char *filename);
 int		open_file(char *filename, t_game *game);
 int		parse_file(t_game *game, t_texture *path);
+/* FILECHECK_2 */
 char	*file_to_line(t_game *game);
 int		set_textures(char *file, t_texture *path);
 char 	*extract_texture(char *file, char *identifier);
@@ -63,4 +64,16 @@ int 	set_colors(char *file, t_color *floor, t_color *ceiling);
 int		set_map(char *file, t_game *game);
 /* ERROR */
 void	ft_error(char *msg);
+/* FREE */
+void	free_texture(t_texture *path);
+void	free_map(char **tab);
+void	free_game(t_game *game);
+/* MAP_CHECK_1 */
+int		verify_map(t_game *game);
+int		is_valid_char(char c);
+int		is_player_char(char c);
+int		are_boundaries_walls(char **map);
+int		validation_cond(t_game *game, int i, int j, int *p);
+/* MAP_CHECK_2 */
+int		check_left_right_wall(char **map, int *i, int j);
 #endif
