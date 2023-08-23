@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/22 20:59:11 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/23 12:30:45 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ MLX		=	mlx
 SRC		=	main.c			\
 			filecheck_1.c	\
 			filecheck_2.c	\
+			filecheck_3.c	\
 			parsing.c		\
 			free.c			\
 			map_check_1.c	\
