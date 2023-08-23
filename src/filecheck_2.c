@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:58:21 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 12:23:33 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:01:41 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,17 @@ int	extract_color(char *file, char *identifier, t_color *color)
 	int		values[3];
 	int		i;
 
-	i = 0;
 	loc = ft_strnstr(file, identifier, ft_strlen(file));
 	if (!loc)
 		return (0);
 	loc += ft_strlen(identifier);
-	while (*loc == ' ')
-		loc++;
+	if (!check_color(loc))
+		return (0);
 	i = -1;
 	while (++i < 3)
 	{
-		values[i] = ft_atoi(loc);
+		if (!str_to_rgb(loc, &values[i]))
+			return (0);
 		end = ft_strchr(loc, ',');
 		if (!end && i < 2)
 			return (0);
@@ -93,9 +93,9 @@ int	extract_color(char *file, char *identifier, t_color *color)
 
 int	set_colors(char *file, t_color *floor, t_color *ceiling)
 {
-	if (!extract_color(file, "F", floor))
+	if (!extract_color(file, "F ", floor))
 		return (0);
-	if (!extract_color(file, "C", ceiling))
+	if (!extract_color(file, "C ", ceiling))
 		return (0);
 	return (1);
 }

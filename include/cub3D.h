@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 16:29:09 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:55:08 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ int		set_colors(char *file, t_color *floor, t_color *ceiling);
 int		set_map(char *file, t_game *game);
 /* FILECHECK_3 */
 void	find_end_of_map(char *str, int len);
+int		str_to_rgb(const char *str, int *num);
+int		check_color(char *loc);
+int		is_nb_formatted(char *loc, char end);
+int		check_color_char(char *loc);
 /* ERROR */
 void	ft_error(char *msg);
 /* FREE */
