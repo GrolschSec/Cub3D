@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 19:26:28 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:04:17 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	set_initial_position(t_game *game)
 				|| game->map[i][j] == 'E'
 				|| game->map[i][j] == 'W')
 			{
-				game->x_pos = j;
-				game->y_pos = i;
-				game->direction = game->map[i][j];
+				game->pos.x = j;
+				game->pos.y = i;
+				game->pos.direction = game->map[i][j];
+				game->map[i][j] = 0;
 				return (1);
 			}
 			j++;
@@ -53,7 +54,6 @@ int	parse_map(t_game *game, t_texture *path, char **argv)
 	close(game->fd);
 	if (!verify_map(game))
 		return (free_texture(path), free_game(game), 4);
-	remove_spaces_from_map(game->map);
 	set_initial_position(game);
 	if (!init_mlx(path, game))
 		return (free_texture(path), free_game(game), 5);

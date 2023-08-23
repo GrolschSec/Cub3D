@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 21:00:17 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:47:38 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 # define D_KEY 100
 # define L_KEY 65361
 # define R_KEY 65363
+
+typedef struct s_pos
+{
+	int		x;
+	int		y;
+	char	direction;
+}				t_pos;
 
 typedef struct s_color
 {
@@ -54,9 +61,7 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	**map;
-	int		x_pos;
-	int		y_pos;
-	char	direction;
+	t_pos	pos;
 }				t_game;
 
 /* WINDOW */
