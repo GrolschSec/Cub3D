@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:58:21 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:55:33 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:23:33 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,9 @@ int	set_map(char *file, t_game *game)
 
 	start_of_map = ft_strnstr(file, "\n1", ft_strlen(file));
 	if (!start_of_map)
+		return (ft_error("Invalid map"), 0);
+	find_end_of_map(start_of_map, ft_strlen(start_of_map));
+	if (!check_empty_line(start_of_map))
 		return (ft_error("Invalid map"), 0);
 	game->map = ft_split(start_of_map, '\n');
 	if (!game->map)

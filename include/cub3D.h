@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 10:47:38 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:24:52 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,16 @@ int		set_initial_position(t_game *game);
 int		has_cub_extension(char *filename);
 int		open_file(char *filename, t_game *game);
 int		parse_file(t_game *game, t_texture *path);
+int		set_textures(char *file, t_texture *path);
+int		check_empty_line(char *map);
 /* FILECHECK_2 */
 char	*file_to_line(t_game *game);
-int		set_textures(char *file, t_texture *path);
 char	*extract_texture(char *file, char *identifier);
+int		extract_color(char *file, char *identifier, t_color *color);
 int		set_colors(char *file, t_color *floor, t_color *ceiling);
 int		set_map(char *file, t_game *game);
+/* FILECHECK_3 */
+void	find_end_of_map(char *str, int len);
 /* ERROR */
 void	ft_error(char *msg);
 /* FREE */

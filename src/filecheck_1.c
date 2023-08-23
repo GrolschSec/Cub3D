@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:03:05 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 18:33:31 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:22:18 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	parse_file(t_game *game, t_texture *path)
 	if (!set_colors(file, &(game->floor), &(game->ceiling)))
 		return (ft_error("Can't extract colors"), free(file), 0);
 	if (!set_map(file, game))
-		return (ft_error("Can't extract map"), free(file), 0);
+		return (free(file), 0);
 	return (free(file), 1);
 }
 
@@ -55,5 +55,18 @@ int	set_textures(char *file, t_texture *path)
 	path->p_south = extract_texture(file, "SO");
 	if (!path->p_north || !path->p_west || !path->p_east || !path->p_south)
 		return (0);
+	return (1);
+}
+
+int	check_empty_line(char *map)
+{
+	int	i;
+
+	i = -1;
+	while (map[++i])
+	{
+		if (map[i + 1] && map[i] == '\n' && map[i + 1] == '\n')
+			return (0);
+	}
 	return (1);
 }
