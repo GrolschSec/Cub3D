@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/23 12:36:56 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/23 13:23:42 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC		=	main.c			\
 			free.c			\
 			map_check_1.c	\
 			map_check_2.c	\
+			map_check_3.c	\
 			init_texture.c	\
 			window.c		\
 			error.c		

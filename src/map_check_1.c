@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:24:24 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 17:24:22 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:40:44 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,6 @@ int	validation_cond(t_game *game, int i, int j, int *p)
 	return (1);
 }
 
-int	are_boundaries_walls(char **map)
-{
-	int	i;
-	int	j;
-
-	j = -1;
-	while (map[0][++j])
-	{
-		if (map[0][j] != '1' && map[0][j] != ' ')
-			return (0);
-	}
-	i = 0;
-	if (!check_left_right_wall(map, &i, j))
-		return (0);
-	j = -1;
-	while (map[i - 1][++j])
-	{
-		if (map[i - 1][j] != '1' && map[i - 1][j] != ' ')
-			return (0);
-	}
-	return (1);
-}
-
 int	verify_map(t_game *game)
 {
 	int	i;
@@ -72,8 +49,6 @@ int	verify_map(t_game *game)
 
 	i = -1;
 	p = 0;
-	if (!are_boundaries_walls(game->map))
-		return (0);
 	while (game->map[++i])
 	{
 		j = -1;
@@ -84,6 +59,9 @@ int	verify_map(t_game *game)
 		}
 	}
 	if (p != 1)
+		return (0);
+	set_initial_position(game);
+	if (!is_closed_map(game->map))
 		return (0);
 	return (1);
 }

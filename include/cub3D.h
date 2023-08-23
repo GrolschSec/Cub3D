@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 12:24:52 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:39:52 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,13 @@ void	free_game(t_game *game);
 int		verify_map(t_game *game);
 int		is_valid_char(char c);
 int		is_player_char(char c);
-int		are_boundaries_walls(char **map);
 int		validation_cond(t_game *game, int i, int j, int *p);
 /* MAP_CHECK_2 */
 int		check_left_right_wall(char **map, int *i, int j);
 void	remove_spaces_from_map(char **map);
+/* MAP_CHECK_3 */
+int		empty_not_open(char **map, int i, int j);
+int		is_closed_map(char **map);
 /* INIT_TEXTURE */
 int		init_texture(t_img *img, void *mlx_ptr, char *path);
 void	dst_img(t_game *game);

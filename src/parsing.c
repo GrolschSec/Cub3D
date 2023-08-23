@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 11:22:06 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:58:03 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	parse_map(t_game *game, t_texture *path, char **argv)
 		return (close(game->fd), free_texture(path), free_game(game), 3);
 	close(game->fd);
 	if (!verify_map(game))
-		return (free_texture(path), free_game(game), 4);
-	set_initial_position(game);
+		return (ft_error("Invalid map"),
+			free_texture(path), free_game(game), 4);
 	if (!init_mlx(path, game))
 		return (free_texture(path), free_game(game), 5);
 	return (0);
