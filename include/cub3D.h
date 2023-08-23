@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 13:39:52 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:29:09 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "../src/libft/libft.h"
 # include "../src/mlx/mlx.h"
 # include "../src/mlx/mlx_int.h"
