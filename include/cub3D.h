@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 17:55:08 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:25:18 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int		close_window(t_game *game);
 /* PARSING */
 int		parse_map(t_game *game, t_texture *path, char **argv);
 int		set_initial_position(t_game *game);
+int		check_duplicate(char *file, char *identifier);
+int		txt_color_dup_check(char *file);
 /* FILECHECK_1 */
 int		has_cub_extension(char *filename);
 int		open_file(char *filename, t_game *game);

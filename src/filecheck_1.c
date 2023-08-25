@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:03:05 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 17:25:17 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:30:27 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	parse_file(t_game *game, t_texture *path)
 		return (ft_error("Can't extract colors"), free(file), 0);
 	if (!set_map(file, game))
 		return (free(file), 0);
+	if (!txt_color_dup_check(file))
+		return (ft_error("Duplicate in file"), free(file), 0);
 	return (free(file), 1);
 }
 

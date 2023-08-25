@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 13:58:03 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:31:06 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,38 @@ int	set_initial_position(t_game *game)
 		i++;
 	}
 	return (0);
+}
+
+int	check_duplicate(char *file, char *identifier)
+{
+	char	*loc;
+
+	loc = ft_strnstr(file, identifier, ft_strlen(file));
+	if (loc)
+	{
+		loc += ft_strlen(identifier);
+		loc = ft_strnstr(loc, identifier, ft_strlen(loc));
+		if (loc)
+			return (0);
+	}
+	return (1);
+}
+
+int	txt_color_dup_check(char *file)
+{
+	if (!check_duplicate(file, "NO"))
+		return (0);
+	if (!check_duplicate(file, "WE"))
+		return (0);
+	if (!check_duplicate(file, "EA"))
+		return (0);
+	if (!check_duplicate(file, "SO"))
+		return (0);
+	if (!check_duplicate(file, "F"))
+		return (0);
+	if (!check_duplicate(file, "C"))
+		return (0);
+	return (1);
 }
 
 int	parse_map(t_game *game, t_texture *path, char **argv)
