@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 20:22:03 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 22:00:36 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:26:32 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,7 @@ void refresh_display(t_game *game)
 
 void	game_init(t_game *game)
 {
-	int	x;
-
 	set_initial_dir(game);
 	set_initial_plane(game);
-	window_init(game);
-	while (1)
-	{
-		// update_game_state
-		x = -1;
-		while (++x < game->s_width)
-			raycast(game, x);
-		refresh_display(game);
-		//delay(16);
-	}
+	events(game);
 }

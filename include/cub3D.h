@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 21:44:50 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:27:52 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct s_raycast
 /* WINDOW */
 void	window_init(t_game *game);
 int		handle_event(int keycode, t_game *game);
+void	events(t_game *game);
 int		close_window(t_game *game);
 /* PARSING */
 int		parse_map(t_game *game, t_texture *path, char **argv);
@@ -152,6 +153,7 @@ void	rotate_right(t_game *game);
 void	set_initial_dir(t_game *game);
 void	set_initial_plane(t_game *game);
 void	game_init(t_game *game);
+void	refresh_display(t_game *game);
 /* RAYCAST */
 void	raycast(t_game *game, int x);
 void	drawVerticalLine(t_game *game, t_raycast *ray, int x);

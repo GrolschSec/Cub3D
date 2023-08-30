@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:58:30 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 22:00:45 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:26:42 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,18 @@ int	handle_event(int keycode, t_game *game)
 	return (0);
 }
 
+void	events(t_game *game)
+{
+	mlx_hook(game->mlx_win, DestroyNotify,
+		StructureNotifyMask, close_window, game);
+	mlx_hook(game->mlx_win, KeyPress, KeyPressMask, handle_event, game);
+}
+
 void	window_init(t_game *game)
 {
 	game->s_width = 1280;
 	game->s_height = 720;
 	game->mlx_win = mlx_new_window(game->mlx_ptr,
 		game->s_width, game->s_height, "cub3D");
-	mlx_hook(game->mlx_win, DestroyNotify,
-		StructureNotifyMask, close_window, game);
-	mlx_hook(game->mlx_win, KeyPress, KeyPressMask, handle_event, game);
-	mlx_loop(game->mlx_ptr);
+	game_init(game);
 }
