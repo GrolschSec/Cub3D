@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/23 13:23:42 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/30 21:45:10 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,10 @@ SRC		=	main.c			\
 			map_check_3.c	\
 			init_texture.c	\
 			window.c		\
+			moves_1.c		\
+			moves_2.c		\
+			raycast.c		\
+			game_init.c		\
 			error.c		
 
 OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)

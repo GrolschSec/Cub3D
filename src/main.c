@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:04:55 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 21:01:28 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:00:33 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main(int argc, char **argv)
 		return (ft_error("Not enough arguments"), 1);
 	if (parse_map(&game, &path, argv))
 		return (2);
-	window_init(&game);
+	game_init(&game);
 	return (0);
 }

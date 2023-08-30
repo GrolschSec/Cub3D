@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/25 13:25:18 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:44:50 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@
 # define D_KEY 100
 # define L_KEY 65361
 # define R_KEY 65363
+# define MOVE_SPEED 0.05
+# define ROT_SPEED 0.05
 
 typedef struct s_pos
 {
-	int		x;
-	int		y;
+	float	x;
+	float	y;
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
 	char	direction;
 }				t_pos;
 
@@ -53,6 +59,8 @@ typedef struct s_texture
 typedef struct s_game
 {
 	int		fd;
+	int		s_width;
+	int		s_height;
 	t_color	floor;
 	t_color	ceiling;
 	t_img	i_north;
@@ -64,6 +72,25 @@ typedef struct s_game
 	char	**map;
 	t_pos	pos;
 }				t_game;
+
+typedef struct s_raycast 
+{
+	double cameraX;
+	double rayDirX;
+	double rayDirY;
+	double	deltaDistX;
+    double	deltaDistY;
+    double	sideDistX;
+	double	sideDistY;
+	int	side;
+	int mapX;
+	int mapY;
+	int stepX;
+	int stepY;
+	int hit;
+	double perpWallDist;
+}				t_raycast;
+
 
 /* WINDOW */
 void	window_init(t_game *game);
@@ -113,4 +140,22 @@ int		is_closed_map(char **map);
 int		init_texture(t_img *img, void *mlx_ptr, char *path);
 void	dst_img(t_game *game);
 int		init_mlx(t_texture *path, t_game *game);
+/* MOVES_1 */
+void	move_forward(t_game *game);
+void	move_backward(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+/* MOVES_2 */
+void	rotate_left(t_game *game);
+void	rotate_right(t_game *game);
+/* GAME_INIT */
+void	set_initial_dir(t_game *game);
+void	set_initial_plane(t_game *game);
+void	game_init(t_game *game);
+/* RAYCAST */
+void	raycast(t_game *game, int x);
+void	drawVerticalLine(t_game *game, t_raycast *ray, int x);
+void	performDDA(t_game *game, t_raycast *ray);
+void	calculateStepAndSideDist(t_raycast *ray, t_game *game);
+void	initRaycasting(t_game *game, int x, t_raycast *ray);
 #endif

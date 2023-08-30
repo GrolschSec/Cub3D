@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:58:30 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 21:01:20 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/30 22:00:45 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,29 +23,26 @@ int	handle_event(int keycode, t_game *game)
 	if (keycode == ESC_KEY)
 		close_window(game);
 	else if (keycode == W_KEY)
-		return (0);
+		move_forward(game);
 	else if (keycode == A_KEY)
-		return (0);
+		move_left(game);
 	else if (keycode == S_KEY)
-		return (0);
+		move_backward(game);
 	else if (keycode == D_KEY)
-		return (0);
+		move_right(game);
 	else if (keycode == L_KEY)
-		return (0);
+		rotate_left(game);
 	else if (keycode == R_KEY)
-		return (0);
+		rotate_right(game);
 	return (0);
 }
 
 void	window_init(t_game *game)
 {
-	int	sizey;
-	int	sizex;
-
-	mlx_get_screen_size(game->mlx_ptr, &sizex, &sizey);
-	sizex = (int)(sizex * 0.7);
-	sizey = (int)(sizey * 0.7);
-	game->mlx_win = mlx_new_window(game->mlx_ptr, sizex, sizey, "cub3D");
+	game->s_width = 1280;
+	game->s_height = 720;
+	game->mlx_win = mlx_new_window(game->mlx_ptr,
+		game->s_width, game->s_height, "cub3D");
 	mlx_hook(game->mlx_win, DestroyNotify,
 		StructureNotifyMask, close_window, game);
 	mlx_hook(game->mlx_win, KeyPress, KeyPressMask, handle_event, game);
