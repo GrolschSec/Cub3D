@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 13:00:01 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:01:52 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,28 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	**map;
-	int		m_width;
-	int		m_height;
+	size_t	m_width;
+	size_t	m_height;
 	t_pos	pos;
 }				t_game;
 
-typedef struct s_raycast 
+typedef struct s_raycast
 {
-	double cameraX;
-	double rayDirX;
-	double rayDirY;
-	double	deltaDistX;
-    double	deltaDistY;
-    double	sideDistX;
-	double	sideDistY;
-	int	side;
-	int mapX;
-	int mapY;
-	int stepX;
-	int stepY;
-	int hit;
-	double perpWallDist;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_d_x;
+	double	delta_d_y;
+	double	side_d_x;
+	double	side_d_y;
+	int		side;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	double	perp_wall_d;
 }				t_raycast;
-
 
 /* WINDOW */
 void	window_init(t_game *game);
@@ -139,6 +138,11 @@ void	remove_spaces_from_map(char **map);
 /* MAP_CHECK_3 */
 int		empty_not_open(char **map, int i, int j);
 int		is_closed_map(char **map);
+/* RESIZE MAP */
+int		get_tab_len(char **map);
+int		find_largest_line(char **map);
+int		resize_line(t_game *game, char **map, int i);
+int		resize_map(t_game *game);
 /* INIT_TEXTURE */
 int		init_texture(t_img *img, void *mlx_ptr, char *path);
 void	dst_img(t_game *game);
