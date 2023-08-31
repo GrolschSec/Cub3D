@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 22:27:52 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:00:01 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	**map;
+	int		m_width;
+	int		m_height;
 	t_pos	pos;
 }				t_game;
 
