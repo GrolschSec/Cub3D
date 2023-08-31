@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 15:58:21 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 18:01:41 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:47:54 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ int	set_colors(char *file, t_color *floor, t_color *ceiling)
 		return (0);
 	if (!extract_color(file, "C ", ceiling))
 		return (0);
+	convert_color(floor);
+	convert_color(ceiling);
 	return (1);
 }
 

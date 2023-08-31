@@ -6,23 +6,12 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:04:55 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 13:01:20 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:18 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 #include <stdio.h>
-
-int	update_game(t_game *game)
-{
-	int	x;
-	
-	x = -1;
-	while (++x < game->s_width)
-		raycast(game, x);
-	refresh_display(game);
-	return (0);
-}
 
 int	main(int argc, char **argv)
 {
@@ -34,7 +23,6 @@ int	main(int argc, char **argv)
 	if (parse_map(&game, &path, argv))
 		return (2);
 	window_init(&game);
-	//mlx_loop_hook(game.mlx_ptr, update_game, &game);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

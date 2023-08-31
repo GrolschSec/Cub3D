@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 14:01:52 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:47:34 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_color
 	unsigned int	red;
 	unsigned int	green;
 	unsigned int	blue;
+	int				mlx;
 }				t_color;
 
 typedef struct s_texture
@@ -121,6 +122,8 @@ int		str_to_rgb(const char *str, int *num);
 int		check_color(char *loc);
 int		is_nb_formatted(char *loc, char end);
 int		check_color_char(char *loc);
+/* CONVERT_COLORS */
+void	convert_color(t_color *color);
 /* ERROR */
 void	ft_error(char *msg);
 /* FREE */

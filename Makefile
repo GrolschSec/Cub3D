@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/08/31 13:57:16 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/08/31 14:36:51 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,23 +32,24 @@ FT		=	libft
 
 MLX		=	mlx
 
-SRC		=	main.c			\
-			filecheck_1.c	\
-			filecheck_2.c	\
-			filecheck_3.c	\
-			parsing.c		\
-			free.c			\
-			map_check_1.c	\
-			map_check_2.c	\
-			map_check_3.c	\
-			init_texture.c	\
-			window.c		\
-			moves_1.c		\
-			moves_2.c		\
-			raycast.c		\
-			game_init.c		\
-			resize_map.c	\
-			error.c		
+SRC		=	main.c				\
+			filecheck_1.c		\
+			filecheck_2.c		\
+			filecheck_3.c		\
+			parsing.c			\
+			free.c				\
+			map_check_1.c		\
+			map_check_2.c		\
+			map_check_3.c		\
+			init_texture.c		\
+			window.c			\
+			moves_1.c			\
+			moves_2.c			\
+			raycast.c			\
+			game_init.c			\
+			resize_map.c		\
+			convert_colors.c	\
+			error.c
 
 OBJS    =   $(SRC:%.c=$(OBJDIR)/%.o)
 

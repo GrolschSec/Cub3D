@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 13:56:16 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 13:56:47 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:20:47 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	resize_map(t_game *game)
 			if (!resize_line(game, game->map, i))
 				return (0);
 		}
-		printf("'%s'\n", game->map[i]);
 		i++;
 	}
 	return (1);
