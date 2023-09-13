@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 14:47:34 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:11:41 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@
 
 typedef struct s_pos
 {
-	float	x;
-	float	y;
-	float	dir_x;
+	float	x;	// Width
+	float	y;	// Height
+	float	dir_x; // need to initialize dirx diry and both plane at depending on player orientation
 	float	dir_y;
 	float	plane_x;
 	float	plane_y;
@@ -60,8 +60,8 @@ typedef struct s_texture
 typedef struct s_game
 {
 	int		fd;
-	int		s_width;
-	int		s_height;
+	int		s_width; //X
+	int		s_height;// Y
 	t_color	floor;
 	t_color	ceiling;
 	t_img	i_north;
@@ -71,27 +71,33 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	**map;
-	size_t	m_width;
-	size_t	m_height;
+	size_t	m_width;// X
+	size_t	m_height;// Y
 	t_pos	pos;
 }				t_game;
 
 typedef struct s_raycast
 {
-	double	camera_x;
-	double	ray_dir_x;
-	double	ray_dir_y;
-	double	delta_d_x;
-	double	delta_d_y;
-	double	side_d_x;
-	double	side_d_y;
-	int		side;
-	int		map_x;
-	int		map_y;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	double	perp_wall_d;
+	double camera_x;
+	double ray_dir_x;
+    double ray_dir_y;
+	int map_x;
+    int map_y;
+    //length of ray from current position to next x or y-side
+    double side_dist_x;
+    double side_dist_y;
+	//length of ray from one x or y-side to next x or y-side
+    double delta_dist_x;
+    double delta_dist_y;
+    double perp_wall_dist;
+	//what direction to step in x or y-direction (either +1 or -1)
+    int step_x;
+    int step_y;
+    int hit; //was there a wall hit?
+    int side; //was a NS or a EW wall hit?
+	int line_height;
+	int draw_start;
+	int draw_end;
 }				t_raycast;
 
 /* WINDOW */
@@ -164,9 +170,7 @@ void	set_initial_plane(t_game *game);
 void	game_init(t_game *game);
 void	refresh_display(t_game *game);
 /* RAYCAST */
-void	raycast(t_game *game, int x);
-void	drawVerticalLine(t_game *game, t_raycast *ray, int x);
-void	performDDA(t_game *game, t_raycast *ray);
-void	calculateStepAndSideDist(t_raycast *ray, t_game *game);
-void	initRaycasting(t_game *game, int x, t_raycast *ray);
+int		raycast(t_game *game);
+void	print_2d_map(t_game *game);
+int	clear_window(t_game *game);
 #endif
