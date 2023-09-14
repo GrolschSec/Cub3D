@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:09:03 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 20:07:28 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:20:43 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,26 @@ void	move_forward(t_game *game)
 {
 	game->pos.x += game->pos.dir_x * MOVE_SPEED;
 	game->pos.y += game->pos.dir_y * MOVE_SPEED;
+	raycast(game);
 }
 
 void	move_backward(t_game *game)
 {
 	game->pos.x -= game->pos.dir_x * MOVE_SPEED;
 	game->pos.y -= game->pos.dir_y * MOVE_SPEED;
+	raycast(game);
 }
 
 void	move_left(t_game *game)
 {
 	game->pos.x += game->pos.dir_y * MOVE_SPEED;
 	game->pos.y -= game->pos.dir_x * MOVE_SPEED;
+	raycast(game);
 }
 
 void	move_right(t_game *game)
 {
 	game->pos.x -= game->pos.dir_y * MOVE_SPEED;
 	game->pos.y += game->pos.dir_x * MOVE_SPEED;
+	raycast(game);
 }
