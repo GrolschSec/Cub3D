@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 21:13:48 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/13 18:12:51 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:40:10 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,48 @@ void	init_raycast(t_raycast *ray, t_game *game, int x)
 	ray->hit = 0;
 }
 
-void	ver_line(t_game *game, t_raycast *ray, int x, int color)
+void set_pixel_to_image(t_game *game, int x, int y, int color)
 {
-	int	y;
+    char    *data;
+    int     bpp;
+    int     size_line;
+    int     endian;
+    int     pos;
 
-	y = ray->draw_start - 1;
-	while (++y < ray->draw_end)
-		mlx_pixel_put(game->mlx_ptr, game->mlx_win, x, y, color);
+    data = mlx_get_data_addr(game->mlx_buf, &bpp, &size_line, &endian);
+    pos = (x * bpp / 8) + (y * size_line);
+    *(unsigned int *)(data + pos) = color;
+}
+
+void ver_line(t_game *game, t_raycast *ray, int x, int color)
+{
+    int y;
+
+    y = -1;
+    while (++y < game->s_height)
+    {
+        if (y >= ray->draw_start && y <= ray->draw_end)
+            set_pixel_to_image(game, x, y, color);
+        else if (y < ray->draw_start)
+            set_pixel_to_image(game, x, y, game->ceiling.mlx);
+        else if (y > ray->draw_end)
+            set_pixel_to_image(game, x, y, game->floor.mlx);
+    }
 }
 
 int	clear_window(t_game *game)
 {
 	mlx_clear_window(game->mlx_ptr, game->mlx_win);
+	return (0);
+}
+
+int	double_buffering(t_game *game)
+{
+	game->mlx_buf = mlx_new_image(game->mlx_ptr, game->s_width, game->s_height);
+	raycast(game);
+	clear_window(game);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, game->mlx_buf, 0, 0);
+	mlx_destroy_image(game->mlx_ptr, game->mlx_buf);
 	return (0);
 }
 
@@ -71,7 +101,6 @@ int	raycast(t_game *game)
 
 	x = -1;
 
-	clear_window(game);
 	while (++x < (int)game->s_width)
 	{
 		init_raycast(&ray, game, x);

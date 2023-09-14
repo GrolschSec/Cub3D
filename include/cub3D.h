@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/13 18:11:41 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:55:39 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 # define D_KEY 100
 # define L_KEY 65361
 # define R_KEY 65363
-# define MOVE_SPEED 0.05
-# define ROT_SPEED 0.05
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 0.5
 
 typedef struct s_pos
 {
-	float	x;	// Width
-	float	y;	// Height
-	float	dir_x; // need to initialize dirx diry and both plane at depending on player orientation
+	float	x;
+	float	y;
+	float	dir_x;
 	float	dir_y;
 	float	plane_x;
 	float	plane_y;
@@ -60,8 +60,8 @@ typedef struct s_texture
 typedef struct s_game
 {
 	int		fd;
-	int		s_width; //X
-	int		s_height;// Y
+	int		s_width;
+	int		s_height;
 	t_color	floor;
 	t_color	ceiling;
 	t_img	i_north;
@@ -70,9 +70,10 @@ typedef struct s_game
 	t_img	i_south;
 	void	*mlx_ptr;
 	void	*mlx_win;
+	void	*mlx_buf;
 	char	**map;
-	size_t	m_width;// X
-	size_t	m_height;// Y
+	size_t	m_width;
+	size_t	m_height;
 	t_pos	pos;
 }				t_game;
 
@@ -83,18 +84,15 @@ typedef struct s_raycast
     double ray_dir_y;
 	int map_x;
     int map_y;
-    //length of ray from current position to next x or y-side
     double side_dist_x;
     double side_dist_y;
-	//length of ray from one x or y-side to next x or y-side
     double delta_dist_x;
     double delta_dist_y;
     double perp_wall_dist;
-	//what direction to step in x or y-direction (either +1 or -1)
     int step_x;
     int step_y;
-    int hit; //was there a wall hit?
-    int side; //was a NS or a EW wall hit?
+    int hit;
+    int side;
 	int line_height;
 	int draw_start;
 	int draw_end;
@@ -172,5 +170,6 @@ void	refresh_display(t_game *game);
 /* RAYCAST */
 int		raycast(t_game *game);
 void	print_2d_map(t_game *game);
-int	clear_window(t_game *game);
+int		clear_window(t_game *game);
+int		double_buffering(t_game *game);
 #endif
