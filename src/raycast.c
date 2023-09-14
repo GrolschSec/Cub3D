@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 21:13:48 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 17:41:28 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:43:55 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	calc_wall_slice_projection(t_game *game, t_raycast *ray)
 		ray->draw_end = game->s_height - 1;
 }
 
-void	color_choose(t_game *game, t_raycast *ray)
+int	color_choose(t_game *game, t_raycast *ray)
 {
 	int	color;
 
@@ -143,13 +143,15 @@ void	color_choose(t_game *game, t_raycast *ray)
 		case 4:  color = 0xFFFFFF; break;
 		default: color = 0xFFFF00; break;
 	}
-	if (ray.side == 1)
+	if (ray->side == 1)
 		color = color / 2;
+	return (color);
 }
 
 int	raycast(t_game *game)
 {
 	int			x;
+	int			color;
 	t_raycast	ray;
 
 	x = -1;
@@ -160,7 +162,7 @@ int	raycast(t_game *game)
 		ft_calc_step_side_dist(game, &ray);
 		dda_algorithm(game, &ray);
 		calc_wall_slice_projection(game, &ray);
-		color_choose(game, &ray);
+		color = color_choose(game, &ray);
 		ver_line(game, &ray, x, color);
 	}
 	return (0);
