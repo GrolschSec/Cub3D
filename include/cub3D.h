@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 17:44:03 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:12:01 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define L_KEY 65361
 # define R_KEY 65363
 # define MOVE_SPEED 0.1
-# define ROT_SPEED 0.5
+# define ROT_SPEED 0.2
 
 typedef struct s_pos
 {
@@ -56,6 +56,16 @@ typedef struct s_texture
 	char	*p_east;
 	char	*p_south;
 }				t_texture;
+
+typedef struct s_pix
+{
+	char	*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		pos;
+}				t_pix;
+
 
 typedef struct s_game
 {
@@ -168,12 +178,14 @@ void	set_initial_plane(t_game *game);
 void	game_init(t_game *game);
 void	refresh_display(t_game *game);
 /* RAYCAST */
+void	init_raycast(t_raycast *ray, t_game *game, int x);
 int		raycast(t_game *game);
 int		double_buffering(t_game *game);
 void	set_pixel_to_image(t_game *game, int x, int y, int color);
 void	ver_line(t_game *game, t_raycast *ray, int x, int color);
+/* RAYCAST 2 */
 void	ft_calc_step_side_dist(t_game *game, t_raycast *ray);
 void	dda_algorithm(t_game *game, t_raycast *ray);
 void	calc_wall_slice_projection(t_game *game, t_raycast *ray);
-int		color_choose(t_game *game, t_raycast *ray);
+int		color_choose(t_raycast *ray);
 #endif

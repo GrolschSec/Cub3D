@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 20:22:03 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 22:26:32 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:52:45 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ void	set_initial_plane(t_game *game)
 		game->pos.plane_x = 0;
 		game->pos.plane_y = -0.66;
 	}
-}
-
-void refresh_display(t_game *game)
-{
-    mlx_clear_window(game->mlx_ptr, game->mlx_win);
-    mlx_do_sync(game->mlx_ptr);
 }
 
 void	game_init(t_game *game)

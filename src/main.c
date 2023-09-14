@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:04:55 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 14:43:14 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:53:17 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	if (parse_map(&game, &path, argv))
 		return (2);
 	window_init(&game);
-	//raycast(&game);
 	double_buffering(&game);
 	mlx_loop(game.mlx_ptr);
 	return (0);

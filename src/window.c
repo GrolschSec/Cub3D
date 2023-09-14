@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:58:30 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/30 22:26:42 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:12:49 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	window_init(t_game *game)
 	game->s_width = 1280;
 	game->s_height = 720;
 	game->mlx_win = mlx_new_window(game->mlx_ptr,
-		game->s_width, game->s_height, "cub3D");
+			game->s_width, game->s_height, "cub3D");
 	game_init(game);
 }
