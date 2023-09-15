@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:47:42 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 18:12:16 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:36:46 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,13 @@ void	dda_algorithm(t_game *game, t_raycast *ray)
 			ray->side = 1;
 		}
 		if (game->map[ray->map_y][ray->map_x] == '1')
+		{
 			ray->hit = 1;
+			if (ray->side == 0)
+				ray->wall_dir = (ray->ray_dir_x < 0) ? WEST : EAST;
+			else
+				ray->wall_dir = (ray->ray_dir_y < 0) ? NORTH : SOUTH;
+		}
 	}
 }
 
@@ -78,16 +84,20 @@ int	color_choose(t_raycast *ray)
 {
 	int	color;
 
-	color = 0xFF0000;
-	if (ray->side == 1)
-		color = color / 2;
+	if (ray->wall_dir == NORTH)
+		color = 0xFF0000;
+	else if (ray->wall_dir == SOUTH)
+		color = 0x00FF00;
+	else if (ray->wall_dir == EAST)
+		color = 0x0000FF;
+	else if (ray->wall_dir == WEST)
+		color = 0xFFFF00;
 	return (color);
 }
 
 int	raycast(t_game *game)
 {
 	int			x;
-	int			color;
 	t_raycast	ray;
 
 	x = -1;
@@ -97,8 +107,7 @@ int	raycast(t_game *game)
 		ft_calc_step_side_dist(game, &ray);
 		dda_algorithm(game, &ray);
 		calc_wall_slice_projection(game, &ray);
-		color = color_choose(&ray);
-		ver_line(game, &ray, x, color);
+		ver_line(game, &ray, x, color_choose(&ray));
 	}
 	return (0);
 }

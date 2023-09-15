@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/15 16:28:22 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:37:33 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,13 @@ typedef struct s_pix
 	int		pos;
 }				t_pix;
 
+enum e_orientation
+{
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST
+};
 
 typedef struct s_game
 {
@@ -100,6 +107,7 @@ typedef struct s_raycast
     double delta_dist_x;
     double delta_dist_y;
     double perp_wall_dist;
+	int	wall_dir;
     int step_x;
     int step_y;
     int hit;
