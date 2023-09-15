@@ -6,7 +6,7 @@
 #    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/09/15 15:40:26 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/09/15 17:50:14 by rlouvrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC		=	main.c				\
 			moves_2.c			\
 			raycast_1.c			\
 			raycast_2.c			\
+			raycast_3.c 		\
 			game_init.c			\
 			resize_map.c		\
 			convert_colors.c	\

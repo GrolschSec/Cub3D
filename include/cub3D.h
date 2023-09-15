@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/15 17:37:33 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:52:56 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,24 +97,24 @@ typedef struct s_game
 
 typedef struct s_raycast
 {
-	double camera_x;
-	double ray_dir_x;
-    double ray_dir_y;
-	int map_x;
-    int map_y;
-    double side_dist_x;
-    double side_dist_y;
-    double delta_dist_x;
-    double delta_dist_y;
-    double perp_wall_dist;
-	int	wall_dir;
-    int step_x;
-    int step_y;
-    int hit;
-    int side;
-	int line_height;
-	int draw_start;
-	int draw_end;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		wall_dir;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
 }				t_raycast;
 
 /* WINDOW */
@@ -197,6 +197,8 @@ void	ft_calc_step_side_dist(t_game *game, t_raycast *ray);
 void	dda_algorithm(t_game *game, t_raycast *ray);
 void	calc_wall_slice_projection(t_game *game, t_raycast *ray);
 int		color_choose(t_raycast *ray);
+/* RAYCAST 3 */
+void	find_wall_dir(t_raycast *ray);
 /* COLLISION */
 int		is_valid_position(t_game *game, double new_x, double new_y);
 #endif

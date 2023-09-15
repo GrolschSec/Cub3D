@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:47:42 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/15 17:36:46 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 17:51:07 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ void	dda_algorithm(t_game *game, t_raycast *ray)
 		if (game->map[ray->map_y][ray->map_x] == '1')
 		{
 			ray->hit = 1;
-			if (ray->side == 0)
-				ray->wall_dir = (ray->ray_dir_x < 0) ? WEST : EAST;
-			else
-				ray->wall_dir = (ray->ray_dir_y < 0) ? NORTH : SOUTH;
+			find_wall_dir(ray);
 		}
 	}
 }
