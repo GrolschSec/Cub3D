@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/15 16:19:36 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:28:22 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define L_KEY 65361
 # define R_KEY 65363
 # define MOVE_SPEED 0.05
-# define ROT_SPEED 0.2
+# define ROT_SPEED 0.06
 # define PLAYER_RADIUS 0.1
 
 typedef struct s_pos
