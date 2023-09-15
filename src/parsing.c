@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 13:09:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/31 13:56:40 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 16:25:29 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	set_initial_position(t_game *game)
 				|| game->map[i][j] == 'E'
 				|| game->map[i][j] == 'W')
 			{
-				game->pos.x = j;
-				game->pos.y = i;
+				game->pos.x = j + 0.1;
+				game->pos.y = i + 0.1;
 				game->pos.direction = game->map[i][j];
 				game->map[i][j] = '0';
 				return (1);
