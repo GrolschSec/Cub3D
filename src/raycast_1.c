@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 21:13:48 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 18:11:24 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:14:22 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,14 @@ void	init_raycast(t_raycast *ray, t_game *game, int x)
 	ray->ray_dir_y = game->pos.dir_y + game->pos.plane_y * ray->camera_x;
 	ray->map_x = (int)game->pos.x;
 	ray->map_y = (int)game->pos.y;
-	ray->delta_dist_x = (ray->ray_dir_x == 0) ? 1e30 : fabs(1 / ray->ray_dir_x);//need change forbidden
-	ray->delta_dist_y = (ray->ray_dir_y == 0) ? 1e30 : fabs(1 / ray->ray_dir_y);//need change forbidden
+	if (ray->ray_dir_x == 0)
+		ray->delta_dist_x = 1e30;
+	else
+		ray->delta_dist_x = fabs(1 / ray->ray_dir_x);
+	if (ray->ray_dir_y == 0)
+		ray->delta_dist_y = 1e30;
+	else
+		ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
 	ray->hit = 0;
 }
 
