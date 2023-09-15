@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:05:17 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 18:12:01 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/15 15:40:59 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,4 +188,6 @@ void	ft_calc_step_side_dist(t_game *game, t_raycast *ray);
 void	dda_algorithm(t_game *game, t_raycast *ray);
 void	calc_wall_slice_projection(t_game *game, t_raycast *ray);
 int		color_choose(t_raycast *ray);
+/* COLLISION */
+int		is_valid_position(t_game *game, double new_x, double new_y);
 #endif
