@@ -17,8 +17,7 @@ int	has_cub_extension(char *filename)
 	char	*dot;
 
 	dot = ft_strrchr(filename, '.');
-	if (dot && dot != filename
-		&& ft_strncmp(dot, ".cub", ft_strlen(dot)) == 0)
+	if (dot && dot != filename && ft_strncmp(dot, ".cub", ft_strlen(dot)) == 0)
 		return (1);
 	return (0);
 }
@@ -51,10 +50,10 @@ int	parse_file(t_game *game, t_texture *path)
 
 int	set_textures(char *file, t_texture *path)
 {
-	path->p_north = extract_texture(file, "NO");
-	path->p_west = extract_texture(file, "WE");
-	path->p_east = extract_texture(file, "EA");
-	path->p_south = extract_texture(file, "SO");
+	path->p_north = extract_texture(file, "NO ");
+	path->p_west = extract_texture(file, "WE ");
+	path->p_east = extract_texture(file, "EA ");
+	path->p_south = extract_texture(file, "SO ");
 	if (!path->p_north || !path->p_west || !path->p_east || !path->p_south)
 		return (0);
 	return (1);

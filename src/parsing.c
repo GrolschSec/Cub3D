@@ -58,17 +58,17 @@ int	check_duplicate(char *file, char *identifier)
 
 int	txt_color_dup_check(char *file)
 {
-	if (!check_duplicate(file, "NO"))
+	if (!check_duplicate(file, "NO "))
 		return (0);
-	if (!check_duplicate(file, "WE"))
+	if (!check_duplicate(file, "WE "))
 		return (0);
-	if (!check_duplicate(file, "EA"))
+	if (!check_duplicate(file, "EA "))
 		return (0);
-	if (!check_duplicate(file, "SO"))
+	if (!check_duplicate(file, "SO "))
 		return (0);
-	if (!check_duplicate(file, "F"))
+	if (!check_duplicate(file, "F "))
 		return (0);
-	if (!check_duplicate(file, "C"))
+	if (!check_duplicate(file, "C "))
 		return (0);
 	return (1);
 }
