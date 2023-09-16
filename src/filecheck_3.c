@@ -15,7 +15,7 @@
 void	find_end_of_map(char *str, int len)
 {
 	len--;
-	while (len != 0 && !ft_isprint(str[len - 1]))
+	while (len != 0 && (!ft_isprint(str[len - 1]) || str[len - 1] == ' '))
 		len--;
 	str[len] = '\0';
 }
