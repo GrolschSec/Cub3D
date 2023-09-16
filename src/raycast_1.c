@@ -6,12 +6,28 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 21:13:48 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/15 17:35:34 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/16 10:59:50 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
+/**
+ * @brief Initializes a raycasting operation for a given screen column.
+ *
+ * @param ray Pointer to the raycasting structure to be initialized.
+ * @param game Contains player position, screen width, etc.
+ * @param x Screen column for which raycasting will be performed.
+ *
+ * This function prepares the raycasting structure (`t_raycast`) for the 
+ * specific screen column (`x`) relative to the player's view. It sets the 
+ * direction of the ray based on the camera's position on the screen, 
+ * calculates distances to potential walls, and resets other ray properties.
+ *
+ * @note The function uses `1e30` to handle cases where the ray's direction is 
+ * completely horizontal or vertical. This avoids division by zero and ensures 
+ * the ray doesn't incorrectly detect a hit in these scenarios.
+ */
 void	init_raycast(t_raycast *ray, t_game *game, int x)
 {
 	ft_memset(ray, 0, sizeof(t_raycast));
@@ -31,6 +47,21 @@ void	init_raycast(t_raycast *ray, t_game *game, int x)
 	ray->hit = 0;
 }
 
+/**
+ * @brief Sets a pixel's color in the game's display buffer.
+ *
+ * @param game Pointer to the main game structure.
+ * @param x The x-coordinate of the pixel.
+ * @param y The y-coordinate of the pixel.
+ * @param color The color value to set for the pixel.
+ *
+ * This function uses the MiniLibX function mlx_get_data_addr to access the 
+ * buffer memory. It then computes the position for the specified pixel (x, y) 
+ * and sets its color to the provided value.
+ *
+ * @note The calculation accounts for bits-per-pixel and size of each line in 
+ * the buffer to ensure correct memory placement.
+ */
 void	set_pixel_to_image(t_game *game, int x, int y, int color)
 {
 	t_pix	pix;
@@ -40,7 +71,22 @@ void	set_pixel_to_image(t_game *game, int x, int y, int color)
 	pix.pos = (x * pix.bpp / 8) + (y * pix.size_line);
 	*(unsigned int *)(pix.data + pix.pos) = color;
 }
-
+/**
+ * @brief Draws a vertical line in the game's display buffer.
+ *
+ * @param game Pointer to the main game structure.
+ * @param ray Pointer to the raycasting information.
+ * @param x The x-coordinate of the vertical line.
+ * @param color The color value for the wall pixel.
+ *
+ * This function draws a vertical line at a given x-coordinate on the screen. 
+ * Between ray->draw_start and ray->draw_end, it paints the wall color. 
+ * Above this region, it paints the ceiling color, and below, it paints the 
+ * floor color.
+ *
+ * @note This utilizes the set_pixel_to_image function to place pixels 
+ * in the correct memory locations within the buffer.
+ */
 void	ver_line(t_game *game, t_raycast *ray, int x, int color)
 {
 	int	y;
@@ -57,6 +103,19 @@ void	ver_line(t_game *game, t_raycast *ray, int x, int color)
 	}
 }
 
+/**
+ * @brief Implements double buffering for smoother rendering.
+ *
+ * @param game Pointer to the main game structure.
+ * 
+ * The function uses the MinilibX's double buffering technique to prevent
+ * flickering during game rendering. It first creates an image buffer, then
+ * raycasts and fills this buffer, clears the current window, and finally 
+ * draws the buffer to the window.
+ * 
+ * Double buffering helps in displaying one frame while preparing the next 
+ * one, ensuring smooth transitions between frames.
+ */
 int	double_buffering(t_game *game)
 {
 	game->mlx_buf = mlx_new_image(game->mlx_ptr, game->s_width, game->s_height);

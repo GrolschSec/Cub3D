@@ -6,12 +6,21 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:11:08 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/14 17:56:36 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:15:15 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
+/**
+ * @brief Rotates the player's view to the left.
+ * 
+ * @param game Contains the game's current state and configurations.
+ * 
+ * The function uses trigonometric calculations to adjust both the 
+ * direction and the plane of the player's viewpoint by ROT_SPEED 
+ * degrees to the left. After adjusting, it redraws the game screen.
+ */
 void	rotate_left(t_game *game)
 {
 	float	old_dir_x;
@@ -30,6 +39,15 @@ void	rotate_left(t_game *game)
 	double_buffering(game);
 }
 
+/**
+ * @brief Rotates the player's view to the right.
+ * 
+ * @param game Contains the game's current state and configurations.
+ * 
+ * The function uses trigonometric calculations to adjust both the 
+ * direction and the plane of the player's viewpoint by ROT_SPEED 
+ * degrees to the right. After adjusting, it redraws the game screen.
+ */
 void	rotate_right(t_game *game)
 {
 	float	old_dir_x;
