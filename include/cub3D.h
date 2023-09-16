@@ -193,7 +193,7 @@ void	init_raycast(t_raycast *ray, t_game *game, int x);
 int		raycast(t_game *game);
 int		double_buffering(t_game *game);
 void	set_pixel_to_image(t_game *game, int x, int y, int color);
-int		color_choose(t_game *game, t_raycast *ray, t_img texture,
+int		color_choose(t_game *game, t_raycast *ray, t_img *texture,
 			int texture_y);
 void	ver_line(t_game *game, t_raycast *ray, int x);
 /* RAYCAST 2 */
@@ -202,7 +202,7 @@ void	dda_algorithm(t_game *game, t_raycast *ray);
 void	calc_wall_slice_projection(t_game *game, t_raycast *ray);
 /* RAYCAST 3 */
 void	find_wall_dir(t_raycast *ray);
-t_img	get_wall_texture(t_game *game, t_raycast *ray);
+t_img	*get_wall_texture(t_game *game, t_raycast *ray);
 /* COLLISION */
 int		is_valid_position(t_game *game, double new_x, double new_y);
 #endif
