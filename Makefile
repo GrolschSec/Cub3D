@@ -36,6 +36,7 @@ SRC		=	main.c				\
 			filecheck_1.c		\
 			filecheck_2.c		\
 			filecheck_3.c		\
+			filecheck_4.c		\
 			parsing.c			\
 			free.c				\
 			map_check_1.c		\

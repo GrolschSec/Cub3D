@@ -145,6 +145,8 @@ int		str_to_rgb(const char *str, int *num);
 int		check_color(char *loc);
 int		is_nb_formatted(char *loc, char end);
 int		check_color_char(char *loc);
+/* FILECHECK_4 */
+char	*find_start_of_map(char *str);
 /* CONVERT_COLORS */
 void	convert_color(t_color *color);
 /* ERROR */
@@ -191,7 +193,8 @@ void	init_raycast(t_raycast *ray, t_game *game, int x);
 int		raycast(t_game *game);
 int		double_buffering(t_game *game);
 void	set_pixel_to_image(t_game *game, int x, int y, int color);
-int		color_choose(t_game *game, t_raycast *ray, t_img texture, int texture_y);
+int		color_choose(t_game *game, t_raycast *ray, t_img texture,
+			int texture_y);
 void	ver_line(t_game *game, t_raycast *ray, int x);
 /* RAYCAST 2 */
 void	ft_calc_step_side_dist(t_game *game, t_raycast *ray);

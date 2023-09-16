@@ -106,7 +106,7 @@ int	set_map(char *file, t_game *game)
 {
 	char	*start_of_map;
 
-	start_of_map = ft_strnstr(file, "\n1", ft_strlen(file));
+	start_of_map = find_start_of_map(file);
 	if (!start_of_map)
 		return (ft_error("Invalid map"), 0);
 	find_end_of_map(start_of_map, ft_strlen(start_of_map));
