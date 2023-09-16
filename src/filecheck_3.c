@@ -62,10 +62,12 @@ int	check_color(char *loc)
 	i = is_nb_formatted(loc, ',');
 	if (!i)
 		return (0);
-	i += is_nb_formatted(loc + i, ',');
+	loc += i;
+	i = is_nb_formatted(loc, ',');
 	if (!i)
 		return (0);
-	i = is_nb_formatted(loc + i, '\n');
+	loc += i;
+	i = is_nb_formatted(loc, '\n');
 	if (!i)
 		return (0);
 	return (1);
