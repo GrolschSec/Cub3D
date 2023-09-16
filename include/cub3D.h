@@ -14,6 +14,7 @@
 # define CUB3D_H
 # include <math.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include <limits.h>
 # include "../src/libft/libft.h"
