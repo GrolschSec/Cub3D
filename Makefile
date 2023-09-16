@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+         #
+#    By: yaassila <yaassila@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/21 17:58:33 by rlouvrie          #+#    #+#              #
-#    Updated: 2023/09/15 17:50:14 by rlouvrie         ###   ########.fr        #
+#    Updated: 2023/09/16 11:00:00 by yaassila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INCLUDES =	-Iinclude -Isrc/libft -Isrc/mlx
 
 CFLAGS	=	-Wall -Werror -Wextra
 
-LDFLAGS =   -L$(SRCDIR)/$(FT) -lft -L$(SRCDIR)/$(MLX) -lmlx -lXext -lX11
+LDFLAGS =   -L$(SRCDIR)/$(FT) -lft -L$(SRCDIR)/$(MLX) -lmlx -lXext -lX11 -lm
 
 LIBFT_PATH = $(SRCDIR)/$(FT)/libft.a
 
@@ -80,9 +80,12 @@ fclean: clean
 	make -C $(SRCDIR)/$(FT) fclean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean
+	make all
+
+bonus: all
 
 debug: CFLAGS += -g -O0
 debug: fclean all
 
-.PHONY: all re clean fclean debug
+.PHONY: all re clean fclean bonus debug
