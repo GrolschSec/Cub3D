@@ -102,7 +102,6 @@ int	color_choose(t_game *game, t_raycast *ray, t_img *texture, int texture_y)
  * @param game Pointer to the main game structure.
  * @param ray Pointer to the raycasting information.
  * @param x The x-coordinate of the vertical line.
- * @param color The color value for the wall pixel.
  *
  * This function draws a vertical line at a given x-coordinate on the screen.
  * Between ray->draw_start and ray->draw_end, it paints the wall color.

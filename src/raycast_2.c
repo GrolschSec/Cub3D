@@ -14,13 +14,13 @@
 
 /**
  * @brief Calculate step and initial side distance for raycasting.
- * 
+ *
  * @param game Main game structure containing player's position.
  * @param ray Structure to store raycasting related variables.
  *
- * This function determines in which direction (positive or negative) the 
- * ray should step for both x and y coordinates. It also calculates the 
- * initial side distance for the ray in both x and y directions. This 
+ * This function determines in which direction (positive or negative) the
+ * ray should step for both x and y coordinates. It also calculates the
+ * initial side distance for the ray in both x and y directions. This
  * step calculation is important for the DDA algorithm used in raycasting.
  */
 void	ft_calc_step_side_dist(t_game *game, t_raycast *ray)
@@ -49,15 +49,15 @@ void	ft_calc_step_side_dist(t_game *game, t_raycast *ray)
 
 /**
  * @brief Executes the DDA algorithm for raycasting.
- * 
+ *
  * @param game Main game structure with game map.
  * @param ray Stores raycasting related variables.
  *
- * This function iteratively steps through the game map grid to find 
- * where the ray intersects with a wall. The DDA algorithm is used to 
- * efficiently traverse the grid. It updates the ray's x and y coordinates 
- * in the map and checks if a wall ('1' in the map) is hit. If a wall is 
- * intersected, it sets ray's hit variable to 1 and determines the wall's 
+ * This function iteratively steps through the game map grid to find
+ * where the ray intersects with a wall. The DDA algorithm is used to
+ * efficiently traverse the grid. It updates the ray's x and y coordinates
+ * in the map and checks if a wall ('1' in the map) is hit. If a wall is
+ * intersected, it sets ray's hit variable to 1 and determines the wall's
  * direction.
  */
 void	dda_algorithm(t_game *game, t_raycast *ray)
@@ -86,10 +86,10 @@ void	dda_algorithm(t_game *game, t_raycast *ray)
 
 /**
  * @brief Calculate wall slice projection properties.
- * 
+ *
  * @param game Provides access to game state variables.
  * @param ray  Contains raycasting related information.
- * 
+ *
  * Determines the perpendicular distance of the ray to the wall it intersects,
  * based on whether the ray hits a horizontal or vertical wall slice. It then
  * computes the height of the wall slice on the screen, and the vertical start
@@ -114,11 +114,11 @@ void	calc_wall_slice_projection(t_game *game, t_raycast *ray)
 
 /**
  * @brief Executes raycasting for each column of the screen.
- * 
+ *
  * @param game Contains game's current state and configurations.
  * @return Always returns 0.
- * 
- * This function calculates and projects the wall slices for each 
+ *
+ * This function calculates and projects the wall slices for each
  * column of the screen using the raycasting technique.
  */
 int	raycast(t_game *game)

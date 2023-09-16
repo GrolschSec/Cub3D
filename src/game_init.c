@@ -14,11 +14,11 @@
 
 /**
  * @brief Set the initial direction based on a cardinal point.
- * 
+ *
  * @param game Contains game state, including player's position and direction.
- * 
- * This function sets the initial x and y directions for the player's viewpoint 
- * based on the given cardinal direction (N, S, E, W) in the game's position 
+ *
+ * This function sets the initial x and y directions for the player's viewpoint
+ * based on the given cardinal direction (N, S, E, W) in the game's position
  * structure, updating the dir_x and dir_y properties accordingly.
  */
 void	set_initial_dir(t_game *game)
@@ -47,11 +47,11 @@ void	set_initial_dir(t_game *game)
 
 /**
  * @brief Set the initial camera plane based on player's cardinal direction.
- * 
+ *
  * @param game Contains game state, including player's position and direction.
- * 
- * Depending on the player's initial cardinal direction (N, S, E, W), this 
- * function determines the camera plane's orientation (plane_x and plane_y) 
+ *
+ * Depending on the player's initial cardinal direction (N, S, E, W), this
+ * function determines the camera plane's orientation (plane_x and plane_y)
  * within the game's position structure.
  */
 void	set_initial_plane(t_game *game)
@@ -80,12 +80,12 @@ void	set_initial_plane(t_game *game)
 
 /**
  * @brief Initialize game settings and configurations.
- * 
+ *
  * @param game Contains game state and configurations.
- * 
- * This function sets the player's initial direction, 
- * determines the camera plane's orientation based on 
- * the player's initial direction, and initializes 
+ *
+ * This function sets the player's initial direction,
+ * determines the camera plane's orientation based on
+ * the player's initial direction, and initializes
  * in-game events.
  */
 void	game_init(t_game *game)

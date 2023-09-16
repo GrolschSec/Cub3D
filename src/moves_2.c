@@ -14,11 +14,11 @@
 
 /**
  * @brief Rotates the player's view to the left.
- * 
+ *
  * @param game Contains the game's current state and configurations.
- * 
- * The function uses trigonometric calculations to adjust both the 
- * direction and the plane of the player's viewpoint by ROT_SPEED 
+ *
+ * The function uses trigonometric calculations to adjust both the
+ * direction and the plane of the player's viewpoint by ROT_SPEED
  * degrees to the left. After adjusting, it redraws the game screen.
  */
 void	rotate_left(t_game *game)
@@ -41,11 +41,11 @@ void	rotate_left(t_game *game)
 
 /**
  * @brief Rotates the player's view to the right.
- * 
+ *
  * @param game Contains the game's current state and configurations.
- * 
- * The function uses trigonometric calculations to adjust both the 
- * direction and the plane of the player's viewpoint by ROT_SPEED 
+ *
+ * The function uses trigonometric calculations to adjust both the
+ * direction and the plane of the player's viewpoint by ROT_SPEED
  * degrees to the right. After adjusting, it redraws the game screen.
  */
 void	rotate_right(t_game *game)
