@@ -28,8 +28,8 @@ int	set_initial_position(t_game *game)
 				|| game->map[i][j] == 'E'
 				|| game->map[i][j] == 'W')
 			{
-				game->pos.x = j + 0.1;
-				game->pos.y = i + 0.1;
+				game->pos.x = j + 0.5;
+				game->pos.y = i + 0.5;
 				game->pos.direction = game->map[i][j];
 				game->map[i][j] = '0';
 				return (1);
