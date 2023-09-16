@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
+/*   By: yaassila <yaassila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:49:01 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/16 11:08:18 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:00:00 by yaassila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 /**
  * @brief Determines the wall direction based on the ray's direction.
- * 
+ *
  * @param ray Contains information about the ray being cast.
- * 
+ *
  * If the ray's side is 0, it implies the ray intersects a wall in the
- * horizontal direction. In such a case, the wall's direction is 
+ * horizontal direction. In such a case, the wall's direction is
  * determined based on ray's x direction. If not, it's determined by
- * ray's y direction. This function updates the wall_dir property 
+ * ray's y direction. This function updates the wall_dir property
  * of the passed ray accordingly.
  */
 void	find_wall_dir(t_raycast *ray)
@@ -39,4 +39,19 @@ void	find_wall_dir(t_raycast *ray)
 		else
 			ray->wall_dir = SOUTH;
 	}
+}
+
+t_img	get_wall_texture(t_game *game, t_raycast *ray)
+{
+	t_img	texture;
+
+	if (ray->wall_dir == NORTH)
+		texture = game->i_north;
+	else if (ray->wall_dir == SOUTH)
+		texture = game->i_south;
+	else if (ray->wall_dir == EAST)
+		texture = game->i_east;
+	else if (ray->wall_dir == WEST)
+		texture = game->i_west;
+	return (texture);
 }

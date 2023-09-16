@@ -113,33 +113,6 @@ void	calc_wall_slice_projection(t_game *game, t_raycast *ray)
 }
 
 /**
- * @brief Determines the color of the wall slice based on its direction.
- * 
- * @param ray Contains raycasting related information.
- * @return The chosen color based on the wall direction.
- * 
- * The function returns different colors based on the wall's direction:
- * - North: Red
- * - South: Green
- * - East: Blue
- * - West: Yellow
- */
-int	color_choose(t_raycast *ray)
-{
-	int	color;
-
-	if (ray->wall_dir == NORTH)
-		color = 0xFF0000;
-	else if (ray->wall_dir == SOUTH)
-		color = 0x00FF00;
-	else if (ray->wall_dir == EAST)
-		color = 0x0000FF;
-	else if (ray->wall_dir == WEST)
-		color = 0xFFFF00;
-	return (color);
-}
-
-/**
  * @brief Executes raycasting for each column of the screen.
  * 
  * @param game Contains game's current state and configurations.
@@ -160,7 +133,7 @@ int	raycast(t_game *game)
 		ft_calc_step_side_dist(game, &ray);
 		dda_algorithm(game, &ray);
 		calc_wall_slice_projection(game, &ray);
-		ver_line(game, &ray, x, color_choose(&ray));
+		ver_line(game, &ray, x);
 	}
 	return (0);
 }
