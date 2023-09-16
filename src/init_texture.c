@@ -6,7 +6,7 @@
 /*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:59:10 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/22 20:30:10 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/16 12:19:53 by rlouvrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,10 @@ int	init_mlx(t_texture *path, t_game *game)
 		return (ft_error("Failed to init texture"), 0);
 	if (!init_texture(&game->i_south, game->mlx_ptr, path->p_south))
 		return (ft_error("Failed to init texture"), 0);
+	if (game->i_north.height != game->i_north.width
+		|| game->i_south.height != game->i_south.width
+		|| game->i_east.height != game->i_east.width
+		|| game->i_west.height != game->i_west.width)
+		return (ft_error("Textures should be square"), 0);
 	return (free_texture(path), 1);
 }
