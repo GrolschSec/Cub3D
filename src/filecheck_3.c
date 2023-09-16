@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filecheck_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlouvrie <rlouvrie@student.42.fr >         +#+  +:+       +#+        */
+/*   By: yaassila <yaassila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:23:12 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/08/23 17:52:46 by rlouvrie         ###   ########.fr       */
+/*   Updated: 2023/09/16 15:00:00 by yaassila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	find_end_of_map(char *str, int len)
 {
-	len--;
-	while (len != 0 && (!ft_isprint(str[len - 1]) || str[len - 1] == ' '))
-		len--;
-	str[len] = '\0';
+	int	i;
+
+	i = len - 1;
+	while (i >= 0 && (!ft_isprint(str[i]) || str[i] == ' '))
+		i--;
+	str[i + 1] = '\0';
 }
 
 int	check_color_char(char *loc)
