@@ -41,17 +41,17 @@ void	find_wall_dir(t_raycast *ray)
 	}
 }
 
-t_img	get_wall_texture(t_game *game, t_raycast *ray)
+t_img	*get_wall_texture(t_game *game, t_raycast *ray)
 {
-	t_img	texture;
+	t_img	*texture;
 
 	if (ray->wall_dir == NORTH)
-		texture = game->i_north;
+		texture = &game->i_north;
 	else if (ray->wall_dir == SOUTH)
-		texture = game->i_south;
+		texture = &game->i_south;
 	else if (ray->wall_dir == EAST)
-		texture = game->i_east;
+		texture = &game->i_east;
 	else if (ray->wall_dir == WEST)
-		texture = game->i_west;
+		texture = &game->i_west;
 	return (texture);
 }

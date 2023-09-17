@@ -72,7 +72,7 @@ void	set_pixel_to_image(t_game *game, int x, int y, int color)
 	*(unsigned int *)(pix.data + pix.pos) = color;
 }
 
-int	color_choose(t_game *game, t_raycast *ray, t_img texture, int texture_y)
+int	color_choose(t_game *game, t_raycast *ray, t_img *texture, int texture_y)
 {
 	double	wall_x;
 	int		texture_x;
@@ -84,12 +84,12 @@ int	color_choose(t_game *game, t_raycast *ray, t_img texture, int texture_y)
 	else
 		wall_x = game->pos.x + ray->perp_wall_dist * ray->ray_dir_x;
 	wall_x -= floor(wall_x);
-	texture_x = (int)(wall_x * (double)texture.width);
+	texture_x = (int)(wall_x * (double)texture->width);
 	if (ray->side == 0 && ray->ray_dir_x < 0)
-		texture_x = texture.width - texture_x - 1;
+		texture_x = texture->width - texture_x - 1;
 	if (ray->side == 1 && ray->ray_dir_y > 0)
-		texture_x = texture.width - texture_x - 1;
-	pix.data = mlx_get_data_addr(texture.data, &pix.bpp, &pix.size_line,
+		texture_x = texture->width - texture_x - 1;
+	pix.data = mlx_get_data_addr(texture->data, &pix.bpp, &pix.size_line,
 			&pix.endian);
 	pix.pos = (texture_x * pix.bpp / 8) + (texture_y * pix.size_line);
 	color = *(unsigned int *)(pix.data + pix.pos);
@@ -102,7 +102,6 @@ int	color_choose(t_game *game, t_raycast *ray, t_img texture, int texture_y)
  * @param game Pointer to the main game structure.
  * @param ray Pointer to the raycasting information.
  * @param x The x-coordinate of the vertical line.
- * @param color The color value for the wall pixel.
  *
  * This function draws a vertical line at a given x-coordinate on the screen.
  * Between ray->draw_start and ray->draw_end, it paints the wall color.
@@ -114,14 +113,14 @@ int	color_choose(t_game *game, t_raycast *ray, t_img texture, int texture_y)
  */
 void	ver_line(t_game *game, t_raycast *ray, int x)
 {
-	t_img	texture;
+	t_img	*texture;
 	double	texture_step;
 	double	texture_pos;
 	int		texture_y;
 	int		y;
 
 	texture = get_wall_texture(game, ray);
-	texture_step = 1.0 * texture.height / ray->line_height;
+	texture_step = 1.0 * texture->height / ray->line_height;
 	texture_pos = (ray->draw_start - game->s_height / 2 + ray->line_height / 2)
 		* texture_step;
 	y = -1;
@@ -129,7 +128,7 @@ void	ver_line(t_game *game, t_raycast *ray, int x)
 	{
 		if (y >= ray->draw_start && y <= ray->draw_end)
 		{
-			texture_y = (int)texture_pos & (texture.height - 1);
+			texture_y = (int)texture_pos & (texture->height - 1);
 			texture_pos += texture_step;
 			set_pixel_to_image(game, x, y, color_choose(game, ray, texture,
 					texture_y));
