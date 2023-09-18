@@ -6,7 +6,7 @@
 /*   By: yaassila <yaassila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:49:01 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/16 11:00:00 by yaassila         ###   ########.fr       */
+/*   Updated: 2023/09/18 10:00:00 by yaassila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_img	*get_wall_texture(t_game *game, t_raycast *ray)
 		texture = &game->i_south;
 	else if (ray->wall_dir == EAST)
 		texture = &game->i_east;
-	else if (ray->wall_dir == WEST)
+	else
 		texture = &game->i_west;
 	return (texture);
 }
