@@ -1,7 +1,7 @@
-NO ./tex/weird.xpm
-SO ./tex/metal.xpm
-WE ./tex/weird.xpm
-EA ./tex/scary_wall2.xpm
+NO ./tex/rock_wall.xpm
+SO ./tex/eagle.xpm
+WE ./tex/jail.xpm
+EA ./tex/dirty_rock_wall.xpm
 
 F 220,100,0
 C 225,30,0

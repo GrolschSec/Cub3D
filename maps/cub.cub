@@ -1,7 +1,7 @@
-NO ./tex/weird.xpm
-EA ./tex/metal.xpm
-SO ./tex/scary_wall.xpm
-WE ./tex/rock.xpm
+NO ./tex/metal_door.xpm
+EA ./tex/metal_wall.xpm
+SO ./tex/eagle.xpm
+WE ./tex/war_cross.xpm
 
 
 F 0,0,0

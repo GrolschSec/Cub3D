@@ -1,7 +1,7 @@
-NO ./tex/plank.xpm
-SO ./tex/plank.xpm
-WE ./tex/plank.xpm
-EA ./tex/plank.xpm
+NO ./tex/blue_skull.xpm
+SO ./tex/jail.xpm
+WE ./tex/map_wall.xpm
+EA ./tex/rock_wall.xpm
 
 F 30,20,10
 C 200,225,250
