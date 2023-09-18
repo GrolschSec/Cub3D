@@ -6,7 +6,7 @@
 /*   By: yaassila <yaassila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 21:13:48 by rlouvrie          #+#    #+#             */
-/*   Updated: 2023/09/16 11:00:00 by yaassila         ###   ########.fr       */
+/*   Updated: 2023/09/18 14:00:00 by yaassila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	ver_line(t_game *game, t_raycast *ray, int x)
 	{
 		if (y >= ray->draw_start && y <= ray->draw_end)
 		{
-			texture_y = (int)texture_pos & (texture->height - 1);
+			texture_y = clamp_int((int)texture_pos, 0, texture->height - 1);
 			texture_pos += texture_step;
 			set_pixel_to_image(game, x, y, color_choose(game, ray, texture,
 					texture_y));

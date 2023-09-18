@@ -204,6 +204,7 @@ void	calc_wall_slice_projection(t_game *game, t_raycast *ray);
 /* RAYCAST 3 */
 void	find_wall_dir(t_raycast *ray);
 t_img	*get_wall_texture(t_game *game, t_raycast *ray);
+int		clamp_int(int value, int min, int max);
 /* COLLISION */
 int		is_valid_position(t_game *game, double new_x, double new_y);
 #endif
